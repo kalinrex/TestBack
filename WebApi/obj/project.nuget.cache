@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "DfNYTSloSahweznbGd0Z+aIjgRy4jPVaIWRmxZEQKe9uGY+Zs8h9xs6F4FwGxquCGY6STxl8CzM6veuKlENp4w==",
+  "dgSpecHash": "Yfvb4QCpE2E4plQOvJOzAGxOvJ3+2C2SMF6zJOddCiO96NwIDTugQXGtA+IgPjHbtOmPwk41F1eQLe9TnmiOkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kalin\\source\\repos\\Actividades\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\kalin\\source\\repos\\TestBack\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kalin\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\kalin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
@@ -69,6 +71,7 @@
     "C:\\Users\\kalin\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.14.1\\system.identitymodel.tokens.jwt.6.14.1.nupkg.sha512",
+    "C:\\Users\\kalin\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",

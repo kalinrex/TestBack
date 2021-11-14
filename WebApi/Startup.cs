@@ -1,4 +1,5 @@
 using Application.Auth;
+using Application.CommandQuery.Query;
 using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
@@ -41,7 +42,7 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors();
             services.AddControllers(opt =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build(); //obligar que se este autenticado
@@ -76,6 +77,8 @@ namespace WebApi
             //inyectamos jwt
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<ICurrentUser, CurrentUser>();
+            services.AddAutoMapper(typeof(PropertyQueryHandler));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,10 +91,11 @@ namespace WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
             }
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors(builder => builder.WithOrigins("*").WithMethods("*").WithHeaders("*"));
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

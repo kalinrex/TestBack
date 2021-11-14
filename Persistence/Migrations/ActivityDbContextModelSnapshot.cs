@@ -64,7 +64,7 @@ namespace Persistence.Migrations
                     b.Property<string>("description")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("disabled_at")
+                    b.Property<DateTime?>("disabled_at")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("status")

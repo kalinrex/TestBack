@@ -12,7 +12,7 @@ namespace Domain.Entities
         public string title { get; set; }
         public string address { get; set; }
         public string description { get; set; }
-        public DateTime disabled_at { get; set; }
+        public DateTime? disabled_at { get; set; }
         public string status { get; set; }
         public List<Activity> Activities { get; set; }
 
