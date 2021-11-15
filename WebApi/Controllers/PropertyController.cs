@@ -1,4 +1,5 @@
 ﻿using Application.CommandQuery.Commands;
+using Application.CommandQuery.Commands.Property;
 using Application.CommandQuery.Query;
 using Application.Dtos;
 using MediatR;
@@ -21,6 +22,16 @@ namespace WebApi.Controllers
         public async Task<ActionResult<List<PropertyDto>>> GetProperty()
         {
             return await Mediator.Send(new PropertyQuery());
+        }
+        [HttpPut("updateProperty")]
+        public async Task<ActionResult<Unit>> addProperty(PropertyCommandUp data)
+        {
+            return await Mediator.Send(data);
+        }
+        [HttpDelete("deleteProperty/{id}")]
+        public async Task<ActionResult<Unit>> deleteProperty(int id)
+        {
+            return await Mediator.Send(new PropertyCommandDel { id = id});
         }
     }
 }

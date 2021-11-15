@@ -33,7 +33,7 @@ namespace Application.CommandQuery.Commands
             var command = await _context.Property.Where(x => x.title == request.title).FirstOrDefaultAsync();
             if(command != null)
                 throw new ExceptionHandler(HttpStatusCode.BadRequest, new {Errors = "El registro ya existe"});
-            var property = new Property
+            var property = new Domain.Entities.Property
             {
                 title = request.title,
                 address = request.address,
