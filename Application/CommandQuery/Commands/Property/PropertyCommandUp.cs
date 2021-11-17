@@ -1,5 +1,6 @@
 ﻿using Application.Constant;
 using Application.ErrorHandler;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Application.CommandQuery.Commands
 {
+    #region ++Command++
     public class PropertyCommandUp : IRequest
     {
         public int id { get; set; }
@@ -21,6 +23,23 @@ namespace Application.CommandQuery.Commands
         public string status { get; set; }
     }
 
+    #endregion
+
+    #region ++Validation++
+    public class PropertyCommandUpValidation : AbstractValidator<PropertyCommandUp>
+    {
+        public PropertyCommandUpValidation()
+        {
+            RuleFor(x => x.id).NotNull().WithMessage("El campo es requerido");
+            RuleFor(x => x.title).NotEmpty().WithMessage("El campo es requerido");
+            RuleFor(x => x.address).NotEmpty().WithMessage("El campo es requerido");
+            RuleFor(x => x.description).NotEmpty().WithMessage("El campo es requerido");
+            RuleFor(x => x.status).NotEmpty().WithMessage("El campo es requerido");
+        }
+    }
+    #endregion
+
+    #region ++CommandHandler
     public class PropertyCommandHandlerUp : IRequestHandler<PropertyCommandUp>
     {
         private readonly ActivityDbContext _context;
@@ -57,4 +76,6 @@ namespace Application.CommandQuery.Commands
             throw new Exception("Hubo un error");
         }
     }
+
+    #endregion
 }

@@ -2,6 +2,7 @@
 using Application.ErrorHandler;
 using Application.Interfaces;
 using Domain.Entities;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -14,11 +15,27 @@ using System.Threading.Tasks;
 
 namespace Application.Auth
 {
+    #region ++Command++
     public class AuthCommand : IRequest<UserDto>
     {
         public string Email { get; set; }
         public string Password { get; set; }
     }
+
+    #endregion
+
+    #region ++Validation++
+    public class AuthCommandValidation : AbstractValidator<AuthCommand>
+    {
+        public AuthCommandValidation()
+        {
+            RuleFor(x => x.Email).EmailAddress().WithMessage("Formato de correo incorrecto").NotEmpty().WithMessage("El campo es requerido");
+            RuleFor(x => x.Password).NotEmpty().WithMessage("El campo es requerido");
+        }
+    }
+    #endregion
+
+    #region ++CommandHandler++
     public class AuthCommandHandler : IRequestHandler<AuthCommand, UserDto>
     {
         private readonly UserManager<User> userManager;
@@ -54,4 +71,6 @@ namespace Application.Auth
             throw new ExceptionHandler(HttpStatusCode.BadRequest, new { Errors = "Email o Password incorrecto." });
         }
     }
+
+    #endregion
 }

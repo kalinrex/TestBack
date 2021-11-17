@@ -1,5 +1,6 @@
 ﻿using Application.Constant;
 using Application.ErrorHandler;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -12,10 +13,25 @@ using System.Threading.Tasks;
 
 namespace Application.CommandQuery.Commands.Activity
 {
+    #region ++Command++
     public class EndActivityCommand : IRequest
     {
         public int activity_id { get; set; }
     }
+
+    #endregion
+
+    #region ++Validation++
+    public class EndActivityCommandValidation : AbstractValidator<EndActivityCommand>
+    {
+        public EndActivityCommandValidation()
+        {
+            RuleFor(x => x.activity_id).NotNull().WithMessage("El campo es requerido");
+        }
+    }
+    #endregion
+
+    #region ++CommandValidation++
     public class EndActivityCommandHandler : IRequestHandler<EndActivityCommand>
     {
         private readonly ActivityDbContext _context;
@@ -43,4 +59,6 @@ namespace Application.CommandQuery.Commands.Activity
             throw new Exception("No se guardaron los cambios");
         }
     }
+
+    #endregion
 }

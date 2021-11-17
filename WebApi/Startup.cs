@@ -1,8 +1,10 @@
 using Application.Auth;
+using Application.CommandQuery.Commands;
 using Application.CommandQuery.Query;
 using Application.Interfaces;
 using Application.Utils;
 using Domain.Entities;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -48,7 +50,8 @@ namespace WebApi
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build(); //obligar que se este autenticado
                 opt.Filters.Add(new AuthorizeFilter(policy));
-            });
+            })
+            .AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<PropertyCommand>());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });

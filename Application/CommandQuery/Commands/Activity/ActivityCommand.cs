@@ -2,6 +2,7 @@
 using Application.ErrorHandler;
 using Application.Utils;
 using Domain.Entities;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -14,14 +15,28 @@ using System.Threading.Tasks;
 
 namespace Application.CommandQuery.Commands.Activity
 {
+    #region ++Command++
     public class ActivityCommand : IRequest
     {
         public int property_id { get; set; }
         public string title { get; set; }
         public DateTime schedule { get; set; }
-        public string status { get; set; }
     }
+    #endregion
 
+    #region ++Validation++
+    public class ActivityCommandValidation : AbstractValidator<ActivityCommand>
+    {
+        public ActivityCommandValidation()
+        {
+            RuleFor(x => x.property_id).NotNull().WithMessage("El campo es requerido");
+            RuleFor(x => x.title).NotEmpty().WithMessage("El Campo es requerido");
+            RuleFor(x => x.schedule).NotNull().WithMessage("El Campo es requerido");
+        }
+    }
+    #endregion
+
+    #region ++CommandHandler++
     public class ActivityCommandHandler : IRequestHandler<ActivityCommand>
     {
         private readonly ActivityDbContext _context;
@@ -49,6 +64,10 @@ namespace Application.CommandQuery.Commands.Activity
             if (sameDate)
                 throw new ExceptionHandler(System.Net.HttpStatusCode.BadRequest, new { Errors = "La fecha y hora seleccionada ya estan registradas en otra actividad" });
 
+            var existProperty = await _context.Property.FirstOrDefaultAsync(x => x.id == request.property_id);
+            if(existProperty == null)
+                throw new ExceptionHandler(System.Net.HttpStatusCode.BadRequest, new { Errors = "La propiedad seleccionada no existe" });
+
 
             var act = new Domain.Entities.Activity();
             act.property_id = request.property_id;
@@ -70,4 +89,6 @@ namespace Application.CommandQuery.Commands.Activity
             throw new Exception("Hubo un error");
         }
     }
+
+    #endregion
 }

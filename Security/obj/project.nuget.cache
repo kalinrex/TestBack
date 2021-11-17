@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "frjXUkrkzJmVJ+MbjtCu0gHb6Hg7W/OTLhND+2u5VqjmXGdlSjsZ+nos8QAOhe0M8X8GUYVbjDF7oC6S+bc9EQ==",
+  "dgSpecHash": "Uwe7KUNGy0Iy1Aipxhq2/9UabSMugFUMPFC9MfZgAHpoSJF4aSiYX0yRbhvn5b5OChKwpopoz02r4j161t4zSQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\kalin\\source\\repos\\TestBack\\Security\\Security.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kalin\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\kalin\\.nuget\\packages\\fluentvalidation\\10.3.4\\fluentvalidation.10.3.4.nupkg.sha512",
+    "C:\\Users\\kalin\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.4\\fluentvalidation.aspnetcore.10.3.4.nupkg.sha512",
+    "C:\\Users\\kalin\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.4\\fluentvalidation.dependencyinjectionextensions.10.3.4.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\kalin\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",

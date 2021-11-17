@@ -1,6 +1,7 @@
 ﻿using Application.Constant;
 using Application.ErrorHandler;
 using Application.Utils;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -13,11 +14,27 @@ using System.Threading.Tasks;
 
 namespace Application.CommandQuery.Commands.Activity
 {
+    #region ++Command++
     public class RescheduleCommand: IRequest
     {
         public int activity_id { get; set; }
         public DateTime reschedule { get; set; }
     }
+
+    #endregion
+
+    #region ++Validation++
+    public class RescheduleCommandValidation : AbstractValidator<RescheduleCommand>
+    {
+        public RescheduleCommandValidation()
+        {
+            RuleFor(x => x.activity_id).NotNull().WithMessage("El campo es requerido");
+            RuleFor(x => x.reschedule).NotNull().WithMessage("El campo es requerido");
+        }
+    }
+    #endregion
+
+    #region ++Validation++
     public class RescheduleCommandHandler : IRequestHandler<RescheduleCommand>
     {
         private readonly ActivityDbContext _context;
@@ -56,4 +73,6 @@ namespace Application.CommandQuery.Commands.Activity
             throw new Exception().InnerException;
         }
     }
+
+    #endregion
 }

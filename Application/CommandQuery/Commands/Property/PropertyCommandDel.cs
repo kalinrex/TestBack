@@ -1,4 +1,5 @@
 ﻿using Application.ErrorHandler;
+using FluentValidation;
 using MediatR;
 using Persistence;
 using System;
@@ -11,11 +12,24 @@ using System.Threading.Tasks;
 
 namespace Application.CommandQuery.Commands.Property
 {
+    #region ++Command++
     public class PropertyCommandDel : IRequest
     {
         public int id { get; set; }
     }
+    #endregion
 
+    #region ++Validation++
+    public class PropertyCommandDelValidation : AbstractValidator<PropertyCommandDel>
+    {
+        public PropertyCommandDelValidation()
+        {
+            RuleFor(x => x.id).NotNull().WithMessage("El campo es requerido");
+        }
+    }
+    #endregion
+
+    #region ++CommandHandler++
     public class PropertyCommandDelHandler : IRequestHandler<PropertyCommandDel>
     {
         private readonly ActivityDbContext _context;
@@ -41,4 +55,6 @@ namespace Application.CommandQuery.Commands.Property
 
         }
     }
+
+    #endregion
 }
