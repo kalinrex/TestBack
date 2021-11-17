@@ -15,7 +15,7 @@ namespace Persistence
             var users = userManager.Users.Count();
             if (users == 0)
             {
-                var user = new User { fullName = "Carlos Agustin", UserName = "Kalinrex", Email = "carloslagustinr@gmail.com" };
+                var user = new User { fullName = "Admin", UserName = "Admin", Email = "Admin@gmail.com" };
                 await userManager.CreateAsync(user, "Password123$");
             }
         }

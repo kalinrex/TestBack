@@ -8,8 +8,9 @@ namespace Application.Constant
 {
     public class StatusConst
     {
-        public const string active = "active";
+        public const string Active = "Active";
         public const string Disabled = "Disabled";
-        public const string done = "done";
+        public const string Done = "Done";
+        public const string Cancel = "Cancel";
     }
 }

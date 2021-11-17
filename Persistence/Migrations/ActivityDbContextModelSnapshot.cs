@@ -32,6 +32,9 @@ namespace Persistence.Migrations
                     b.Property<int>("property_id")
                         .HasColumnType("integer");
 
+                    b.Property<DateTime>("schedule")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("status")
                         .HasColumnType("text");
 

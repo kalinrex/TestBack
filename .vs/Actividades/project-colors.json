@@ -5,7 +5,22 @@
       "ProjectGuid": "08a1fa44-d313-4f7e-9c36-d58bee43fdbf",
       "DisplayName": "WebApp",
       "ColorIndex": 0
+    },
+    "49c0e1b4-ae9a-4ea5-b999-31738779a65d": {
+      "ProjectGuid": "49c0e1b4-ae9a-4ea5-b999-31738779a65d",
+      "DisplayName": "Application",
+      "ColorIndex": 1
+    },
+    "8b2f7e88-5670-434c-aca9-eadbe373c498": {
+      "ProjectGuid": "8b2f7e88-5670-434c-aca9-eadbe373c498",
+      "DisplayName": "Domain",
+      "ColorIndex": 2
+    },
+    "35ea20d2-e686-4de8-a342-08911621d347": {
+      "ProjectGuid": "35ea20d2-e686-4de8-a342-08911621d347",
+      "DisplayName": "WebApi",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }

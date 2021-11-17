@@ -10,6 +10,7 @@ namespace Domain.Entities
     {
         public int id { get; set; }
         public int property_id { get; set; }
+        public DateTime schedule { get; set; }
         public string title { get; set; }
         public string status { get; set; }
         public Property Property { get; set; }

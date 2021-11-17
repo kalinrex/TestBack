@@ -1,6 +1,7 @@
 using Application.Auth;
 using Application.CommandQuery.Query;
 using Application.Interfaces;
+using Application.Utils;
 using Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
@@ -76,6 +77,7 @@ namespace WebApi
             });
             //inyectamos jwt
             services.AddScoped<IJwtGenerator, JwtGenerator>();
+            services.AddScoped<Helpers>();
             services.AddScoped<ICurrentUser, CurrentUser>();
             services.AddAutoMapper(typeof(PropertyQueryHandler));
 
